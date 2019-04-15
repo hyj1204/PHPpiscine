@@ -1,0 +1,1 @@
+Since PAMP can not work, i used the built-in php command instead to configure a VirtualHost.

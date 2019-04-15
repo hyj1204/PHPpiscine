@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <title>Calculator</title>
+    </head>
+    <style>
+        html {
+            background-color: pink;
+        }
+        body {
+            text-align: center;
+        }
+        h1 {
+            position: relative;
+            top:40%;
+        }
+        form {
+            position: relative;
+            top:50%;
+        }
+        input, select{
+            height: 50px;
+            font-size: 2em;
+        }
+    </style>
+    <script>
+        window.setInterval('alert("Please, use me ...")', 30000);
+        var result;
+        function cal() {
+            var num1=document.getElementById('num1').value;
+            var num2=document.getElementById('num2').value;
+            var op=document.getElementById('op').value;
+            var numCheck = /^\d+$/; //首尾两个/是regular expression 的标识符。^开头，$结尾，\d=[0-9],+一个或者多个
+            if(!numCheck.test(num1)|| !numCheck.test(num2)) {
+                alert ('Error :(');
+                return console.log('Error :(');
+            }
+            switch(op) {
+                case ('+'):
+                    result = Number(num1) + Number(num2);  //一定要加Number（）不加的话，result会等于这两个字符串相加，例如1+1=11
+                    break;
+                case ('-'):
+                    result = Number(num1) - Number(num2);
+                    break;
+                case ('*'):
+                    result = Number(num1) * Number(num2);
+                    break;
+                case ('/'):
+                    if (Number(num2) === 0)
+                        result = "It's over 9000!";
+                    else
+                        result = Number(num1) / Number(num2);
+                    break;
+                case ('%'):
+                    if (Number(num2) === 0)
+                        result = "It's over 9000!";
+                    else
+                        result = Number(num1) % Number(num2);
+                    break;
+            }
+            alert(result);
+            console.log(result);
+        }
+    </script>
+    <body>
+        <h1>Calculator</h1>
+        <form action="" id=cal>
+            <input type="text" id="num1"/>
+            <select id="op">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+                <option value="%">%</option>
+            </select>
+            <input type="text" id="num2"/>
+            </br>
+            </br>
+            </br>
+            <input type="submit" id="submit" value="Try me!" onclick="cal()"/>
+        </form>
+    </body>
+</html>

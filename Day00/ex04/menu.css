@@ -1,0 +1,46 @@
+/* 按钮样式 */
+.btn {    
+    background-color: aqua;
+    color: black;
+    font-size: 2em;
+    border: none;
+    padding: 5px 100px;
+    cursor: pointer; /*cursor是指针移上去的时候会有不同的效果*/
+}
+
+.dropdown {
+    position: relative; /*整个下拉菜单的位置根据浏览器大小来*/
+    display: inline-block; /*让不同的下拉菜单可以并行显示,如果只有inline的话，两个下拉菜单的内容会显示在同一个位置*/
+}
+
+.dropdown-content {
+    display: none; /*下拉菜单的内容默认是隐藏的，在鼠标移动到指定元素后会显示*/
+    position: absolute;
+    background-color: rgb(167, 232, 243);
+    width: 100%;
+}
+
+.dropdown-content a {  /*定义dropdown-content里面的a样式*/
+    display: block;
+    text-align:center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    margin:20px;
+    text-decoration: none;
+}
+.dropdown-content a:hover {
+    background-color: white;
+}
+
+.btn {
+    background-color: aqua;
+    color: black;
+    font-size: 2em;
+    border: none;
+    padding: 5px 100px;
+    cursor: pointer; /*cursor是指针移上去的时候会有不同的效果*/
+}
+
+.dropdown:hover .dropdown-content{
+    display: block;
+}

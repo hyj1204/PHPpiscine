@@ -1,0 +1,93 @@
+<html>
+        <head>
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+            <title>Calulator</title>
+        </head>
+        <style>
+                html {
+                    background-color: pink;
+                }
+                body {
+                    text-align: center;
+                }
+                h1 {
+                    position: relative;
+                    top:40%;
+                }
+                form {
+                    position: relative;
+                    top:50%;
+                }
+                input, select{
+                    height: 50px;
+                    font-size: 2em;
+                }
+        </style>
+		<script>	
+			$(document).ready(function() {
+				cal = $('#cal');
+				n1 = $('#num1'); //这里变量名不能跟id名字一样
+				n2 = $('#num2');
+				op = $('#op');
+				cal.submit(calculate); //这里的函数名calculate 不能跟cal一样
+				setInterval("alert('Please, use me...')", 30000);
+			});
+				function calculate() {
+					var num1 = n1.val();
+					var num2 = n2.val();
+                    var numCheck = /^\d+$/; //首尾两个/是regular expression 的标识符。^开头，$结尾，\d=[0-9],+一个或者多个
+                        if(!numCheck.test(num1)|| !numCheck.test(num2)) {
+                            alert ('Error :(');
+                            return console.log('Error :(');
+                        }
+
+					switch (op.val()) {
+						case ('+'):
+							total = Number(num1) + Number(num2);
+							break;
+						case ('-'):
+							total = Number(num1) - Number(num2);
+							break;
+						case ('*'):
+							total = Number(num1) * Number(num2);
+							break;
+						case ('/'):
+							if (Number(num2) === 0)
+								total = "It's over 9000!";
+							else
+								total = Number(num1) / Number(num2);
+							break;
+						case ('%'):
+							if (Number(num2) === 0)
+								total = "It's over 9000!";
+							else
+								total = Number(num1) % Number(num2);
+							break;
+						default:
+							total = "Operation not found";
+							break;
+					}
+					alert(total);
+					console.log(total);
+				}
+		</script>
+	<body>
+		<h1>Calculator</h1>
+		<form action="" id="cal">
+			<input type="text" id="num1"/>
+			<select id="op">
+				<option value="+">+</option>
+				<option value="-">-</option>
+				<option value="*">*</option>
+				<option value="/">/</option>
+				<option value="%">%</option>
+			</select>
+			<input type="text" id="num2"/>
+                </br>
+                </br>
+                </br>
+			<input type="submit" id="submit" value="Try me!"/>
+		</form>
+	</body>
+</html>
+
